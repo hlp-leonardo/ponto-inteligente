@@ -2,6 +2,7 @@ package entities;
 
 import jakarta.persistence.*;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
@@ -10,6 +11,7 @@ import java.util.List;
 @Table(name = "empresa")
 public class Empresa implements Serializable {
 
+    @Serial
     private static final long serialVersionUID = 3960436649365666213L;
 
     private Long id;
