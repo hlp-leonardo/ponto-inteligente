@@ -3,12 +3,12 @@ package entities;
 import enums.TipoEnum;
 import jakarta.persistence.*;
 
-import java.io.Serial;
+import java.io.Serializable;
 import java.util.Date;
 
 @Entity
 @Table(name = "lancamento")
-public class Lancamento {
+public class Lancamento implements Serializable {
 
     public static final long serialVersionUID = 6524560251526772839L;
 
