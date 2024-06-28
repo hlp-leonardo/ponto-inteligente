@@ -31,7 +31,7 @@ public class Funcionario implements Serializable {
     private Empresa empresa;
     private List<Lancamento> lancamentos;
 
-    private Funcionario() {
+    public Funcionario() {
 
     }
 
