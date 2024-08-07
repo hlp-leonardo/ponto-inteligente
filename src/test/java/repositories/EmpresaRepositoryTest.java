@@ -7,6 +7,8 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
+import org.springframework.test.context.event.annotation.AfterTestExecution;
+import org.springframework.test.context.event.annotation.BeforeTestExecution;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 @ExtendWith(SpringExtension.class)
@@ -19,7 +21,7 @@ public class EmpresaRepositoryTest {
 
     private static final String CNPJ = "51463645000100";
 
-    @BeforeEach
+    @BeforeTestExecution
     public void setUp() throws Exception {
         Empresa empresa = new Empresa();
         empresa.setRazaoSocial("Empresa de exemplo");
@@ -27,7 +29,7 @@ public class EmpresaRepositoryTest {
         this.empresaRepository.save(empresa);
     }
 
-    @AfterEach
+    @AfterTestExecution
     public final void tearDown() {
         this.empresaRepository.deleteAll();
     }

@@ -1,6 +1,7 @@
 package com.projeto.ponto_inteligente.api.repositories;
 
 import entities.Lancamento;
+import jakarta.persistence.NamedQueries;
 import jakarta.persistence.NamedQuery;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -10,8 +11,11 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
-@Transactional
-@NamedQuery(name = "LancamentoRepository.findByFuncionarioId", query = "SELECT lanc FROM lancamento WHERE lanc.funcionario.id = funcionarioId")
+@Transactional(readOnly = true)
+@NamedQueries({
+        @NamedQuery(name = "LancamentoRepository.findByFuncionarioId",
+                query = "SELECT lanc FROM lancamento WHERE lanc.funcionario.id = funcionarioId")
+})
 
 public interface LancamentoRepository extends JpaRepository<Lancamento, Long> {
 
